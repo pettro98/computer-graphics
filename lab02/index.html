@@ -1,0 +1,45 @@
+<html>
+
+<head>
+
+</head>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    canvas {
+        border: 1px dashed black;
+    }
+</style>
+
+<body>
+    <canvas id="lab01" height=400 width=400></canvas>
+    <script>
+        var canvas = document.getElementById("lab01");
+        var ctx = canvas.getContext("2d");
+
+        // ctx.fillRect(40, 10, 20, 20);
+        // var link = document.createElement("a");
+        // link.innerHTML = "save image raw";
+        // link.addEventListener("click", function (event) {
+        //     link.href = canvas.toDataURL();
+        //     link.download = "canvas.png";
+        // }, false);
+        // document.body.appendChild(link);
+
+        var img = new Image();
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0);
+        }
+        img.src = "./canvas1.png"
+
+
+    </script>
+</body>
+
+</html>
