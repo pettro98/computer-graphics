@@ -1,0 +1,13 @@
+    html,
+    body {
+        color: black;
+        background-color: white;
+    }
+
+    div {
+        margin: 10px;
+    }
+
+    canvas {
+        border: 1px dashed black;
+    }
