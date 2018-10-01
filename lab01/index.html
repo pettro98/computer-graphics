@@ -1,79 +1,16 @@
+<!DOCTYPE HTML>
+
 <html>
 
 <head>
-
+    <title>Lab01 by Tolkunov</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./style.css">
 </head>
-
-<style>
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: white;
-    }
-
-    canvas {
-        border: 1px dashed black;
-    }
-</style>
 
 <body>
     <canvas id="lab01" height=400 width=400></canvas>
-    <script>
-        var lab01 = {};
-        var canvas = document.getElementById("lab01");
-        var ctx = canvas.getContext("2d");
-        ctx.fillStyle = "magenta";
-        ctx.strokeStyle = "darkmagenta";
-        var rect = { x: 200, y: 200, h: 40, w: 40 };
-        var center = { x: 200, y: 200 };
-        ctx.strokeRect(center.x - rect.w / 2, center.y - rect.h / 2, rect.w, rect.h)
-        ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
-        var direction = "left";
-        function anim() {
-            ctx.clearRect(center.x - rect.w, center.y - rect.h, rect.w * 2, rect.h * 2);
-            switch (direction) {
-                case "left":
-                    rect.x--;
-                    if (rect.x + rect.w <= center.x) {
-                        direction = "up";
-                    }
-                    break;
-                case "up":
-                    rect.y--;
-                    if (rect.y + rect.h <= center.y) {
-                        direction = "right";
-                    }
-                    break;
-                case "right":
-                    rect.x++;
-                    if (rect.x >= center.x) {
-                        direction = "down";
-                    }
-                    break;
-                case "down":
-                    rect.y++;
-                    if (rect.y >= center.y) {
-                        direction = "left";
-                    }
-                    break;
-            }
-            ctx.strokeRect(center.x - rect.w / 2, center.y - rect.h / 2, rect.w, rect.h)
-            ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
-        }
-        setInterval(anim, 10);
-        canvas.addEventListener("mousemove", function (ev) {
-            if (ev.buttons & 1 == 1) {
-                ctx.clearRect(center.x - rect.w, center.y - rect.h, rect.w * 2, rect.h * 2);
-                center.x += ev.movementX;
-                center.y += ev.movementY;
-                rect.x += ev.movementX;
-                rect.y += ev.movementY;
-                ctx.strokeRect(center.x - rect.w / 2, center.y - rect.h / 2, rect.w, rect.h)
-                ctx.fillRect(rect.x, rect.y, rect.w, rect.h);
-            }
-        });
-    </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
