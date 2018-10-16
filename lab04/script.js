@@ -5,7 +5,7 @@ var beforeCtx = before.getContext("2d");
 var afterCtx = after.getContext("2d");
 
 var img = new Image();
-шьп.crossOrigin = "Anonymous";
+img.crossOrigin = "Anonymous";
 img.src = './image.png';
 img.onload = processImage;
 
