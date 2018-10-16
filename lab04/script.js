@@ -5,6 +5,7 @@ var beforeCtx = before.getContext("2d");
 var afterCtx = after.getContext("2d");
 
 var img = new Image();
+img.crossOrigin = "Anonymous";
 img.src = './image.png';
 img.onload = processImage;
 
@@ -52,7 +53,7 @@ function processImage() {
             Math.sqrt(sumX[1] * sumX[1] + sumY[1] * sumY[1]) +
             Math.sqrt(sumX[2] * sumX[2] + sumY[2] * sumY[2]);
         sum /= 10; // brightness
-        
+
         var c2 = coord(x, y, 0);
         newData[c2] = sum;
         newData[c2 + 1] = sum;
