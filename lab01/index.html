@@ -5,11 +5,28 @@
 <head>
     <title>Lab01 by Tolkunov</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .bblock {
+            float: left;
+            width: 420px;
+        }
+    </style>
 </head>
 
 <body>
-    <canvas id="lab01" height=400 width=400></canvas>
+    <div>
+        <h1>Анимация в &lt;canvas&gt;</h1>
+    </div>
+    <div>
+        <div class="bblock">
+            <canvas id="lab01" width=400 height=400 class="bordered"></canvas>
+        </div>
+        <div class="bblock">
+            <span>Перемещением курсора мыши с нажатой левой конпкой внутри ограниченной области можно передвигать
+                анимированные элементы.</span>
+        </div>
+    </div>
     <script src="./script.js"></script>
 </body>
 

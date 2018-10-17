@@ -1,7 +1,7 @@
 var canvas = document.getElementById("lab01");
 var ctx2d = canvas.getContext("2d");
-ctx2d.fillStyle = "magenta";
-ctx2d.strokeStyle = "darkmagenta";
+ctx2d.fillStyle = "#0b0";
+ctx2d.strokeStyle = "#080";
 var rect = { x: 200, y: 200, h: 40, w: 40 };
 var center = { x: 200, y: 200 };
 var direction = "left";
@@ -40,10 +40,12 @@ setInterval(anim, 10);
 canvas.addEventListener("mousemove", function (ev) {
     if (ev.buttons & 1 == 1) {
         ctx2d.clearRect(center.x - rect.w, center.y - rect.h, rect.w * 2, rect.h * 2);
-        center.x += ev.movementX;
-        center.y += ev.movementY;
-        rect.x += ev.movementX;
-        rect.y += ev.movementY;
+        var dx = (center.x + ev.movementX > 400 || center.x + ev.movementX < 0) ? 0 : ev.movementX;
+        var dy = (center.y + ev.movementY > 400 || center.y + ev.movementY < 0) ? 0 : ev.movementY;
+        center.x += dx;
+        center.y += dy;
+        rect.x += dx;
+        rect.y += dy;
         ctx2d.strokeRect(center.x - rect.w / 2, center.y - rect.h / 2, rect.w, rect.h)
         ctx2d.fillRect(rect.x, rect.y, rect.w, rect.h, true);
     }
