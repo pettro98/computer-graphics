@@ -60,28 +60,27 @@ function circleTo(x, y) {
 
 canvas.addEventListener("click", function (event) {
     event.preventDefault();
-    if (!waiting) {
+    if (waiting === "LMB") {
+        line(prevX, prevY, Math.floor(event.offsetX / gridSize), Math.floor(event.offsetY / gridSize));
+        waiting = null;
+    } else {
         waiting = "LMB";
         prevX = Math.floor(event.offsetX / gridSize);
         prevY = Math.floor(event.offsetY / gridSize);
         return;
     }
-    if (waiting === "LMB") {
-        line( prevX, prevY, Math.floor(event.offsetX / gridSize) , Math.floor(event.offsetY / gridSize));
-        waiting = null;
-    }
+
 });
 
 canvas.addEventListener("contextmenu", function (event) {
     event.preventDefault();
-    if (!waiting) {
+    if (waiting === "RMB") {
+        circleTo(event.offsetX, event.offsetY);
+        waiting = null;
+    } else {
         waiting = "RMB";
         prevX = Math.floor(event.offsetX / gridSize);
         prevY = Math.floor(event.offsetY / gridSize);
         return;
-    }
-    if (waiting === "RMB") {
-        circleTo(event.offsetX, event.offsetY);
-        waiting = null;
     }
 });
